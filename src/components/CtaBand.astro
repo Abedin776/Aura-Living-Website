@@ -1,0 +1,12 @@
+---
+interface Props { title?: string; text?: string; }
+const { title = 'Let’s make property care feel more considered.', text = 'Tell us what you are planning, and we will start with a thoughtful conversation.' } = Astro.props;
+---
+<section class="cta-band">
+  <div class="container">
+    <span class="eyebrow">A better next step</span>
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a class="button" href="/contact/">Start a conversation <span aria-hidden="true"> ↗</span></a>
+  </div>
+</section>

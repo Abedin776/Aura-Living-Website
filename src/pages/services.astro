@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services } from '../data/site';
+---
+<BaseLayout title="Services" description="Explore Aura Living's residential property management and resident support services in Virginia." path="/services/">
+  <PageHero eyebrow="Services" title="The details that keep a home moving." intro="Aura Living coordinates the practical work around a property with steady communication and a resident-minded approach." />
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        {services.map((service) => (
+          <article class="service-card">
+            <span class="service-number">{service.number}</span>
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section split-section">
+    <div class="container content-grid">
+      <div class="content-copy">
+        <span class="eyebrow">A useful distinction</span>
+        <h2>Coordination that leaves room for good judgment.</h2>
+        <p>Property care is rarely one big task. It is the sequence of small decisions, timely updates, and follow-through that shapes the experience of owning or living in a home.</p>
+        <p>Our role is to bring those details together, flag what needs attention, and make the next step easier to see. The exact scope can be shaped around your property and needs.</p>
+      </div>
+      <aside class="side-card"><h2>Have a question about fit?</h2><p>Share a little about the property or situation. We can use the first conversation to understand what support would be useful.</p><a class="button" href="/contact/">Talk with Aura Living</a></aside>
+    </div>
+  </section>
+  <CtaBand title="Let’s make the next detail easier." text="Tell us what you need help coordinating, and we will begin with a thoughtful conversation." />
+</BaseLayout>

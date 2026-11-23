@@ -1,0 +1,28 @@
+---
+import { navItems } from '../data/site';
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Aura Living home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span class="brand-name">Aura <strong>Living</strong></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <nav id="site-navigation" class="site-nav" aria-label="Primary navigation">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="button button-small button-outline" href="/contact/">Start a conversation</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const navigation = document.querySelector<HTMLElement>('#site-navigation');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navigation?.classList.toggle('is-open', !open);
+  });
+</script>
